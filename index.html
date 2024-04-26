@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorful Apparel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 5px 10px;
+            color: #fff;
+            text-decoration: none;
+            background-color: #333;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .product-tile {
+            width: 30%;
+            margin-bottom: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+        }
+        .product-tile:hover {
+            transform: scale(1.05);
+        }
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background-color: #ccc;
+            background-size: cover;
+            background-position: center;
+        }
+        .product-details {
+            padding: 10px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" style="color: #fff;">Home</a>
+            <a href="#" style="color: #fff;">Products</a>
+            <a href="#" style="color: #fff;">Profile</a>
+        </nav>
+    </header>
+
+    <div class="container"></div>
+
+    <footer>
+        <div>
+            <h4>Contact Us</h4>
+            <p>Email: info@colorfulapparel.com</p>
+            <p>Phone: 123-456-7890</p>
+        </div>
+        <div>
+            <h4>Subscribe to Our Newsletter</h4>
+            <form>
+                <label for="emailInput">Enter your email:</label>
+                <input type="email" id="emailInput" name="email" placeholder="example@example.com">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+        <div>
+            <p>&copy; 2024 Colorful Apparel. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function displayImages(imageUrls) {
+            const container = document.querySelector('.container');
+            container.innerHTML = ''; // Clear existing content
+            
+            imageUrls.forEach(url => {
+                const productTile = document.createElement('div');
+                productTile.classList.add('product-tile');
+                
+                const productImage = document.createElement('div');
+                productImage.classList.add('product-image');
+                productImage.style.backgroundImage = `url('${url}')`;
+                
+                const productDetails = document.createElement('div');
+                productDetails.classList.add('product-details');
+                
+                const title = document.createElement('h3');
+                title.textContent = 'Product Title';
+                
+                const price = document.createElement('p');
+                price.textContent = '$19.99'; // Example price
+                
+                productDetails.appendChild(title);
+                productDetails.appendChild(price);
+                
+                productTile.appendChild(productImage);
+                productTile.appendChild(productDetails);
+                
+                container.appendChild(productTile);
+            });
+        }
+
+        // Example usage
+        const imageUrls = [
+            'https://via.placeholder.com/300',
+            'https://via.placeholder.com/300',
+            'https://via.placeholder.com/300'
+        ];
+        displayImages(imageUrls);
+    </script>
+</body>
+</html>
